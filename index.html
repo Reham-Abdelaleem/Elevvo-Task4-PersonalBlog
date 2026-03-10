@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css"> 
+    <title>My Personal Blog - Tech, Travel & Food</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-md px-0 py-3">
+                <a class="navbar-brand logo d-flex align-items-center gap-3" href="#">
+                    <i class="fa-solid fa-feather"></i>
+                    <div class="logo-text">
+                        <h1 class="mb-0">My Blog</h1>
+                        <p class="mb-0">Stories & Adventures</p>
+                    </div>
+                </a>
+                <button class="navbar-toggler hamburger border-0 shadow-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto d-flex gap-md-4 gap-0">
+                        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero -->
+    <section class="hero text-center text-white position-relative overflow-hidden">
+        <div class="container">
+            <div class="hero-content position-relative">
+                <h2 class="hero-title">Welcome to My Blog</h2>
+                <p class="hero-description mx-auto">
+                    Exploring the world through technology, travel, and food.
+                    Join me on this journey of discovery and inspiration.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="search-bar mx-auto mb-4">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search posts by title..." autocomplete="off">
+                <button type="button" class="clear-search" id="clearSearch" title="Clear search"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="category-filters d-flex justify-content-center flex-wrap gap-3 mb-4">
+                <button class="filter-btn d-flex align-items-center gap-2 active" data-category="all">
+                    <i class="fa-solid fa-grip"></i> All Posts
+                </button>
+                <button class="filter-btn d-flex align-items-center gap-2" data-category="tech">
+                    <i class="fa-solid fa-laptop-code"></i> Tech
+                </button>
+                <button class="filter-btn d-flex align-items-center gap-2" data-category="travel">
+                    <i class="fa-solid fa-plane"></i> Travel
+                </button>
+                <button class="filter-btn d-flex align-items-center gap-2" data-category="food">
+                    <i class="fa-solid fa-utensils"></i> Food
+                </button>
+            </div>
+            <div class="results-info text-center">
+                <p id="resultsCount" class="mb-0 text-muted small">Showing <span class="count fw-semibold">12</span> posts</p>
+            </div>
+        </div>
+    </section>
+    <!-- Posts -->
+    <section class="blog-posts py-5">
+        <div class="container">
+            <div class="posts-grid d-flex flex-wrap mb-5" id="postsGrid"></div>
+            <div class="no-results text-center py-5" id="noResults">
+                <i class="fa-solid fa-magnifying-glass d-block mb-3 opacity-25"></i>
+                <h3>No posts found</h3>
+                <p class="text-muted">Try adjusting your search or filter criteria</p>
+            </div>
+            <div class="pagination d-flex justify-content-center align-items-center flex-wrap gap-3" id="pagination">
+                <button class="pagination-btn d-flex align-items-center gap-2" id="prevBtn" disabled>
+                    <i class="fa-solid fa-chevron-left"></i> Previous
+                </button>
+                <div class="page-numbers d-flex gap-2" id="pageNumbers"></div>
+                <button class="pagination-btn d-flex align-items-center gap-2" id="nextBtn">
+                    Next <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="footer-content d-flex flex-wrap gap-4 mb-4 pb-4">
+                <div class="footer-section">
+                    <div class="footer-logo d-flex align-items-center gap-3 mb-3 fs-5 fw-bold">
+                        <i class="fa-solid fa-feather"></i>
+                        <span>My Blog</span>
+                    </div>
+                    <p>Sharing stories, experiences, and inspiration from around the world.</p>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#" class="d-flex align-items-center justify-content-center text-decoration-none" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center text-decoration-none" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center text-decoration-none" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center text-decoration-none" aria-label="LinkedIn">
+                            <i class="fa-brands fa-square-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="fw-semibold mb-4">Categories</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Technology</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Travel</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Food</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Lifestyle</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="fw-semibold mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-decoration-none">About Me</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Contact</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="fw-semibold mb-4">Newsletter</h4>
+                    <p>Subscribe to get the latest posts delivered to your inbox.</p>
+                    <form class="newsletter-form d-flex gap-2">
+                        <label for="email"></label>
+                        <input type="email" id="email" placeholder="Your email address" required>
+                        <button type="submit" title="Subscribe" aria-label="Subscribe to newsletter">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom pt-4 text-center">
+                <p class="mb-0">&copy; 2024 My Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- JavaScript File -->
+    <script src="js/script.js"></script>
+</body>
+</html>
